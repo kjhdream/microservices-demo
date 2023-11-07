@@ -32,7 +32,7 @@ patches:
               - name: REDIS_ADDR
                 $patch: delete
               - name: ALLOYDB_PRIMARY_IP
-                value: 172.28.80.27
+                value: 172.28.81.3
               - name: ALLOYDB_DATABASE_NAME
                 value: carts
               - name: ALLOYDB_TABLE_NAME
