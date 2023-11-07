@@ -32,15 +32,15 @@ patches:
               - name: REDIS_ADDR
                 $patch: delete
               - name: ALLOYDB_PRIMARY_IP
-                value: ALLOYDB_PRIMARY_IP_VAL
+                value: 172.28.80.27
               - name: ALLOYDB_DATABASE_NAME
-                value: ALLOYDB_DATABASE_NAME_VAL
+                value: carts
               - name: ALLOYDB_TABLE_NAME
-                value: ALLOYDB_TABLE_NAME_VAL
+                value: cart_items
               - name: ALLOYDB_SECRET_NAME
-                value: ALLOYDB_SECRET_NAME_VAL
+                value: postgre-secret
               - name: PROJECT_ID
-                value: PROJECT_ID_VAL
+                value: fluted-polymer-404205
 # cartservice - add the GSA annotation for the cartservice KSA
 - patch: |-
     apiVersion: v1
@@ -48,7 +48,7 @@ patches:
     metadata:
       name: cartservice
       annotations:
-        iam.gke.io/gcp-service-account: ALLOYDB_USER_GSA_ID
+        iam.gke.io/gcp-service-account: postgre-user-sa@fluted-polymer-404205.iam.gserviceaccount.com
 # redis - remove the redis-cart Deployment
 - patch: |-
     apiVersion: apps/v1
